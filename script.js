@@ -2,12 +2,24 @@ const container = document.querySelector('.container');
 
 function createDiv() {
     const div = document.createElement('div');
-    divLength = (1100 / 16) - 6 + 'px';
+    divLength = (1100 / 16) - 2 + 'px';
 
-    div.style.cssText = `width: ${divLength};
+    div.style.cssText = 
+    `width: ${divLength};
     height: ${divLength};
     border: 1px solid black;
-    margin: 2px`
+    border-radius: 2px`;
+
+    div.addEventListener('mouseover', () => {
+        div.style.background = 'red';
+    });
+    div.addEventListener('dragover', () => {
+        div.style.background = 'white'
+    });
+    div.addEventListener('click', () => {
+        div.style.background = 'white'
+    });
+
     container.appendChild(div);
 
 }
