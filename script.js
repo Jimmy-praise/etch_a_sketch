@@ -1,8 +1,10 @@
-const container = document.querySelector('.container');
+const grid = document.querySelector('.grid');
+const createNewGrid = document.querySelector('#create-new-grid');
 
-function createDiv() {
+
+function createDiv(numberOfSquaresOnSides) {
     const div = document.createElement('div');
-    divLength = (1100 / 16) - 2 + 'px';
+    divLength = (1100 / numberOfSquaresOnSides) - 2 + 'px';
 
     div.style.cssText = 
     `width: ${divLength};
@@ -20,10 +22,22 @@ function createDiv() {
         div.style.background = 'white'
     });
 
-    container.appendChild(div);
-
+    grid.appendChild(div);
 }
 
-for (let i = 0; i < 256; i++) {
-    createDiv()
+function createGrid(params) {
+    let numberOfSquaresOnSides = parseInt(prompt('How many squares do you want on each side?', '16'));
+    if (numberOfSquaresOnSides > 100) {
+        alert ('Try again!!! Number must not exceed 100');
+    } else {
+        let numberOfSqaures = numberOfSquaresOnSides ** 2
+        for (let i = 0; i < numberOfSqaures; i++) {
+            createDiv(numberOfSquaresOnSides)
+        } 
+    }
 }
+
+createNewGrid.addEventListener('click', () => {
+    grid.replaceChildren();
+    createGrid();
+});
