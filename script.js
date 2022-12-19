@@ -12,8 +12,11 @@ function createDiv(numberOfSquaresOnSides) {
     border: 1px solid black;
     border-radius: 2px`;
 
-    div.addEventListener('mouseover', () => {
-        div.style.background = 'red';
+    div.addEventListener('mouseenter', () => {
+        let redRandomNumber = Math.random() * 255;
+        let blueRandomNumber = Math.random() * 255;
+        let greenRandomNumber = Math.random() * 255;
+        div.style.background = `rgb(${redRandomNumber}, ${greenRandomNumber}, ${blueRandomNumber})`;
     });
     div.addEventListener('dragover', () => {
         div.style.background = 'white'
@@ -25,7 +28,7 @@ function createDiv(numberOfSquaresOnSides) {
     grid.appendChild(div);
 }
 
-function createGrid(params) {
+function createGrid() {
     let numberOfSquaresOnSides = parseInt(prompt('How many squares do you want on each side?', '16'));
     if (numberOfSquaresOnSides > 100) {
         alert ('Try again!!! Number must not exceed 100');
