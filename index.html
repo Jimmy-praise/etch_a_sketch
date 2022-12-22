@@ -9,9 +9,17 @@
     <script src="./script.js" defer></script>
 </head>
 <body>
+    <div class="title">
+        <h1>Etch-A-Sketch</h1>
+    </div>
     <div class="container">
-        <div class="button">
-            <button id="create-new-grid">Create New Grid</button>
+        <div class="buttons">
+            <input type="color" name="color" id="color-picker">
+            <button id="single-color-mode">Single Color</button>
+            <button id="multi-color-mode">Multi-Color</button>
+            <button id="eraser">Eraser</button>
+            <button id="reset">Reset</button>
+            <input type="number" name="grid-number" placeholder="Number of Square grid" id="grid-number">
         </div>
         <div class="grid"></div>
     </div>

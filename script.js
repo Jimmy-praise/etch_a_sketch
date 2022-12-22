@@ -4,7 +4,7 @@ const createNewGrid = document.querySelector('#create-new-grid');
 
 function createDiv(numberOfSquaresOnSides) {
     const div = document.createElement('div');
-    divLength = (1100 / numberOfSquaresOnSides) - 2 + 'px';
+    divLength = (650 / numberOfSquaresOnSides) - 2 + 'px';
 
     div.style.cssText = 
     `width: ${divLength};
@@ -28,8 +28,7 @@ function createDiv(numberOfSquaresOnSides) {
     grid.appendChild(div);
 }
 
-function createGrid() {
-    let numberOfSquaresOnSides = parseInt(prompt('How many squares do you want on each side?', '16'));
+function createGrid(numberOfSquaresOnSides) {
     if (numberOfSquaresOnSides > 100) {
         alert ('Try again!!! Number must not exceed 100');
     } else {
@@ -40,7 +39,10 @@ function createGrid() {
     }
 }
 
+createGrid(16)
+
 createNewGrid.addEventListener('click', () => {
     grid.replaceChildren();
-    createGrid();
+    let numberOfSquaresOnSides = parseInt(prompt('How many squares do you want on each side?', '16'));
+    createGrid(numberOfSquaresOnSides);
 });
