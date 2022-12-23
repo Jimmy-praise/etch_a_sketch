@@ -44,22 +44,23 @@ function createDiv(numberOfSquaresOnSides) {
 }
 
 function createGrid(numberOfSquaresOnSides) {
-    if (numberOfSquaresOnSides > 100) {
-        alert ('Try again!!! Number must not exceed 100');
-    } else if  (numberOfSquaresOnSides < 5) {
-        alert ('Try again!!! Number must not be less than 5');
-    } else {
         let numberOfSqaures = numberOfSquaresOnSides ** 2
         for (let i = 0; i < numberOfSqaures; i++) {
             createDiv(numberOfSquaresOnSides)
         } 
-    }
 }
 
 createGrid(16)
 
 createNewGrid.addEventListener('change', () => {
-    grid.replaceChildren();
     let numberOfSquaresOnSides = parseInt(createNewGrid.value);
-    createGrid(numberOfSquaresOnSides);
+    
+    if (numberOfSquaresOnSides > 100) {
+        alert ('Try again!!! Number must not exceed 100');
+    } else if  (numberOfSquaresOnSides < 5) {
+        alert ('Try again!!! Number must not be less than 5');
+    } else {
+        grid.replaceChildren();
+        createGrid(numberOfSquaresOnSides);  
+    };  
 });
