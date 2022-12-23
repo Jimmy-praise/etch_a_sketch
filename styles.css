@@ -65,3 +65,11 @@ body {
     color: black;
     background: cyan;
 }
+.footer {
+    color: white;
+    background: rgb(85, 80, 80);
+    padding: 30px;
+    text-align: center;
+    font-size: 1.2em;
+    font-family: cursive;
+}
