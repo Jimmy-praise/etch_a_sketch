@@ -33,19 +33,19 @@ body {
     align-items: center;
     justify-content: center;
 }
-.buttons #color-picker {
+.controls #color-picker {
     display: block;
     margin: 40px auto;
     height: 100px;
     width: 100px;
 }
-.buttons #grid-number {
+.controls #grid-number {
     display: block;
     margin: 20px auto;
     font-size: 1.5em;
     padding: 10px;
 }
-.buttons button {
+.controls button {
     display: block;
     margin: 20px auto;
     font-size: 1.5em;
@@ -54,11 +54,11 @@ body {
     color: red;
     border-radius: 10px;
 }
-.buttons button:hover {
+.controls button:hover {
     color: white;
     background: red;
 }
-.buttons button:active {
+.controls button:active {
     color: black;
     background: cyan;
 }

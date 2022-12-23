@@ -1,28 +1,43 @@
 const grid = document.querySelector('.grid');
-const createNewGrid = document.querySelector('#create-new-grid');
-
+const color = document.querySelector('#color-picker');
+const singleColorMode = document.querySelector('#single-color-mode');
+const multiColorMode = document.querySelector('#multi-color-mode');
+const eraser = document.querySelector('#eraser');
+const reset = document.querySelector('#reset');
+const squareGrid = document.querySelector('#grid-number');
 
 function createDiv(numberOfSquaresOnSides) {
     const div = document.createElement('div');
     divLength = (650 / numberOfSquaresOnSides) - 2 + 'px';
-
     div.style.cssText = 
     `width: ${divLength};
     height: ${divLength};
     border: 1px solid black;
     border-radius: 2px`;
 
-    div.addEventListener('mouseenter', () => {
-        let redRandomNumber = Math.random() * 255;
-        let blueRandomNumber = Math.random() * 255;
-        let greenRandomNumber = Math.random() * 255;
-        div.style.background = `rgb(${redRandomNumber}, ${greenRandomNumber}, ${blueRandomNumber})`;
+    singleColorMode.addEventListener('click', () => {
+        div.addEventListener('mouseenter', () => {
+            div.style.background = `black`;
+        });
     });
-    div.addEventListener('dragover', () => {
-        div.style.background = 'white'
+
+    multiColorMode.addEventListener('click', () => {
+        div.addEventListener('mouseenter', () => {
+            let randomR = Math.random() * 255;
+            let randomG = Math.random() * 255;
+            let randomB = Math.random() * 255;
+            div.style.background = `rgb(${randomR}, ${randomG}, ${randomB})`;
+        });
     });
-    div.addEventListener('click', () => {
-        div.style.background = 'white'
+
+    eraser.addEventListener('click', () => {
+        div.addEventListener('mouseenter', () => {
+            div.style.background = 'white';
+        });
+    });
+
+    reset.addEventListener('click', () => {
+            div.style.background = 'white';
     });
 
     grid.appendChild(div);
@@ -40,9 +55,3 @@ function createGrid(numberOfSquaresOnSides) {
 }
 
 createGrid(16)
-
-createNewGrid.addEventListener('click', () => {
-    grid.replaceChildren();
-    let numberOfSquaresOnSides = parseInt(prompt('How many squares do you want on each side?', '16'));
-    createGrid(numberOfSquaresOnSides);
-});
