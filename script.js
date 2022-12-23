@@ -4,7 +4,7 @@ const singleColorMode = document.querySelector('#single-color-mode');
 const multiColorMode = document.querySelector('#multi-color-mode');
 const eraser = document.querySelector('#eraser');
 const reset = document.querySelector('#reset');
-const squareGrid = document.querySelector('#grid-number');
+const createNewGrid = document.querySelector('#grid-number');
 
 function createDiv(numberOfSquaresOnSides) {
     const div = document.createElement('div');
@@ -46,6 +46,8 @@ function createDiv(numberOfSquaresOnSides) {
 function createGrid(numberOfSquaresOnSides) {
     if (numberOfSquaresOnSides > 100) {
         alert ('Try again!!! Number must not exceed 100');
+    } else if  (numberOfSquaresOnSides < 5) {
+        alert ('Try again!!! Number must not be less than 5');
     } else {
         let numberOfSqaures = numberOfSquaresOnSides ** 2
         for (let i = 0; i < numberOfSqaures; i++) {
@@ -55,3 +57,9 @@ function createGrid(numberOfSquaresOnSides) {
 }
 
 createGrid(16)
+
+createNewGrid.addEventListener('change', () => {
+    grid.replaceChildren();
+    let numberOfSquaresOnSides = parseInt(createNewGrid.value);
+    createGrid(numberOfSquaresOnSides);
+});
