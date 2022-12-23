@@ -17,7 +17,8 @@ function createDiv(numberOfSquaresOnSides) {
 
     singleColorMode.addEventListener('click', () => {
         div.addEventListener('mouseenter', () => {
-            div.style.background = `black`;
+            let divColor = color.value;
+            div.style.background = `${divColor}`;
         });
     });
 
