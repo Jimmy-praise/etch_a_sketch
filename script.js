@@ -12,18 +12,17 @@ function createDiv(numberOfSquaresOnSides) {
     div.style.cssText = 
     `width: ${divLength};
     height: ${divLength};
-    border: 1px solid black;
-    border-radius: 2px`;
+    border: 1px solid black;`;
 
     singleColorMode.addEventListener('click', () => {
-        div.addEventListener('mouseenter', () => {
+        div.addEventListener('dragenter', () => {
             let divColor = color.value;
             div.style.background = `${divColor}`;
         });
     });
 
     multiColorMode.addEventListener('click', () => {
-        div.addEventListener('mouseenter', () => {
+        div.addEventListener('dragenter', () => {
             let randomR = Math.random() * 255;
             let randomG = Math.random() * 255;
             let randomB = Math.random() * 255;
@@ -32,7 +31,7 @@ function createDiv(numberOfSquaresOnSides) {
     });
 
     eraser.addEventListener('click', () => {
-        div.addEventListener('mouseenter', () => {
+        div.addEventListener('dragenter', () => {
             div.style.background = 'white';
         });
     });
@@ -45,10 +44,10 @@ function createDiv(numberOfSquaresOnSides) {
 }
 
 function createGrid(numberOfSquaresOnSides) {
-        let numberOfSqaures = numberOfSquaresOnSides ** 2
-        for (let i = 0; i < numberOfSqaures; i++) {
-            createDiv(numberOfSquaresOnSides)
-        } 
+    let numberOfSqaures = numberOfSquaresOnSides ** 2
+    for (let i = 0; i < numberOfSqaures; i++) {
+        createDiv(numberOfSquaresOnSides)
+    } 
 }
 
 createGrid(16)
@@ -56,8 +55,8 @@ createGrid(16)
 createNewGrid.addEventListener('change', () => {
     let numberOfSquaresOnSides = parseInt(createNewGrid.value);
     
-    if (numberOfSquaresOnSides > 100) {
-        alert ('Try again!!! Number must not exceed 100');
+    if (numberOfSquaresOnSides > 50) {
+        alert ('Try again!!! Number must not exceed 50');
     } else if  (numberOfSquaresOnSides < 5) {
         alert ('Try again!!! Number must not be less than 5');
     } else {
