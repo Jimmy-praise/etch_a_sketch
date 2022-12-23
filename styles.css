@@ -39,9 +39,19 @@ body {
     height: 100px;
     width: 100px;
 }
+.form {
+    display: block;
+    background: wheat;
+    margin: 20px auto;
+    font-size: 1.2em;
+    padding: 5px;
+    border: 1px solid red;
+    color: red;
+    border-radius: 10px;
+}
 .controls label {
     font-size: 1.2em;
-    color: white;
+    color: red;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 .controls #grid-number {
@@ -49,11 +59,14 @@ body {
     font-size: 1em;
     padding: 5px;
     width: 50px;
+    border: 1px solid black;
+    border-radius: 5px;
 }
 .controls button {
     display: block;
     margin: 20px auto;
     font-size: 1.5em;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     padding: 10px;
     border: 1px solid red;
     color: red;
